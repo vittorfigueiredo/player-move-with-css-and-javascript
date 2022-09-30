@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ball Game</title>
+
+  <style>
+    #player {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      position: relative;
+      border-radius: 50%;
+    }
+
+    #controls {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="controls">
+    <label>CONTROLS:</label><br><br>
+    <label>MOVER PLAYER: W, A, S, D TO MOVE</label>
+  </div>
+  <div id="player"></div>
+</body>
+
+<script>
+  const player = document.getElementById("player");
+
+  let playerPositionUp = 0;
+  let playerPositionDown = 0;
+  let playerPositionLeft = 0;
+  let playerPositionRight = 0;
+
+  addEventListener("keypress", (event) => {
+
+    if (event.key === "s") {
+      playerPositionUp += 10;
+      playerPositionDown -= 10;
+
+      player.style.top = playerPositionUp + "px";
+      player.style.bottom = playerPositionDown + "px";
+    }
+
+    if (event.key === "w") {
+      playerPositionUp -= 10;
+
+      player.style.top = playerPositionUp + "px";
+      player.style.bottom = playerPositionDown + "px";
+    }
+
+    if (event.key === "a") {
+      playerPositionLeft -= 10;
+      playerPositionRight += 10;
+
+      player.style.left = playerPositionLeft + "px";
+      player.style.right = playerPositionRight + "px";
+    }
+
+    if (event.key === "d") {
+      playerPositionLeft += 10;
+      playerPositionRight -= 10;
+
+      player.style.left = playerPositionLeft + "px";
+      player.style.right = playerPositionRight + "px";
+    }
+  });
+
+</script>
+
+</html>
